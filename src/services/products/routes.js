@@ -12,3 +12,5 @@ router
 .get(productsHandler.getProductById)
 .put(productsHandler.updateProductById)
 .delete(productsHandler.deleteProductById)
+
+export default router

@@ -5,7 +5,9 @@ import createDefaultTables from "./database/create-tables.js"
 const server = express()
 
 const {PORT} = process.env
+
 server.use(express.json())
+
 server.use("/products", productsRouter)
 
 server.listen(PORT, async () => {
