@@ -1,8 +1,6 @@
--- to delete the table: drop
-
 CREATE TABLE IF NOT EXISTS 
 products(
-    id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    product_id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     name VARCHAR(100) NOT NULL,
     description TEXT NOT NULL,
     brand VARCHAR(100) NOT NULL,
@@ -11,4 +9,13 @@ products(
     category VARCHAR(100),
     created_at TIMESTAMPTZ DEFAULT NOW(),
     updated_at TIMESTAMPTZ DEFAULT NOW()
+)
+
+CREATE TABLE IF NOT EXISTS
+reviews(
+    review_id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    comment VARCHAR(300) NOT NULL,
+    rate INTEGER NOT NULL,
+    product_id INTEGER REFERENCES products (product_id),
+    created_at TIMESTAMPTZ DEFAULT NOW()
 )
